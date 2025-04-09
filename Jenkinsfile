@@ -10,7 +10,7 @@ pipeline{
 	stages{
 		stage('Build-03'){
 			steps{
-				sh 'docker  version'
+				//sh 'docker  version'
 				sh 'node --version'
 				echo "Build 03"
 			}
