@@ -2,15 +2,16 @@
 pipeline{
 	
 	agent any
-	// agent{
-	// 	docker{
-	// 		image 'node:13.8'
-	// 	}
-	// }
+	agent{
+		docker{
+			image 'node:13.8'
+		}
+	}
 	stages{
 		stage('Build-03'){
 			steps{
 				sh 'docker  version'
+				sh 'node --version'
 				echo "Build 03"
 			}
 		}
