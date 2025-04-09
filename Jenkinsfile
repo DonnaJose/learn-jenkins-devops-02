@@ -1,11 +1,16 @@
 //Declarative pipeline
 pipeline{
 	
-	//agent any
-	agent{
-		docker{
-			image 'node:13.8'
-		}
+	agent any
+	// agent{
+	// 	docker{
+	// 		image 'node:13.8'
+	// 	}
+	// }
+	environment{
+		myDockerHome= tool 'myDocker'
+		myMavenHome= tool 'myMaven'
+		PATH="myDockerHome/bin:myMavenHome/bin:$PATH"
 	}
 	stages{
 		stage('Build-03'){
