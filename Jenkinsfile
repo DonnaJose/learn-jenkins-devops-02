@@ -1,12 +1,12 @@
 //Declarative pipeline
 pipeline{
 	
-	//agent any
-	agent{
-		docker{
-			image 'maven:3.9.9'
-		}
-	}
+	agent any
+	// agent{
+	// 	docker{
+	// 		image 'maven:3.9.9'
+	// 	}
+	// }
 	environment{
 		myDockerHome= tool 'myDocker'
 		myMavenHome= tool 'myMaven'
@@ -15,7 +15,7 @@ pipeline{
 	stages{
 		stage('Build-03'){
 			steps{
-				sh 'mvn clean install'
+				//sh 'mvn clean install'
 				sh 'docker  version'
 				sh 'mvn --version'
 				echo "Build 03"
