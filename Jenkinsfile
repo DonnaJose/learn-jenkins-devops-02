@@ -18,7 +18,7 @@ pipeline{
 				//sh 'mvn clean install'
 				sh 'docker  version'
 				sh 'mvn --version'
-				sh 'Build tage= $env.BUILD_TAG'
+			    echo "Build tag = $env.BUILD_TAG"
 				echo "Build 03"
 			}
 		}
