@@ -44,14 +44,18 @@ pipeline{
 		}
 		stage("Build docker image"){
 			steps{
-				dockerImage=docker.build("donnajose/currency-exchange-devops:${env.BUILD_TAG}")
+				script{
+				  dockerImage=docker.build("donnajose/currency-exchange-devops:${env.BUILD_TAG}")
+				}
 			}
 		}
 		stage("Push the docker image"){
 			steps{
-				docker.withRegistry('','dockerhub'){
-				dockerImage.push()
-				dockerImage.push('latest')
+				script{
+					docker.withRegistry('','dockerhub'){
+					dockerImage.push()
+					dockerImage.push('latest')
+					}
 				}
 			}
 		}
