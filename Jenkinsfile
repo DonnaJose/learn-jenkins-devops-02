@@ -21,14 +21,19 @@ pipeline{
 				echo "Build 03"
 			}
 		}
-		stage('Test-03'){
+		stage('Compile'){
 			steps{
-				echo "Test 03"
+				sh 'mvn clean compile'
 			}
 		}
-		stage('Int-Test-03'){
+		stage('Test'){
 			steps{
-				echo "Int-test 03"
+				sh 'mvn test'
+			}
+		}
+		stage ('Integration Test'){
+			steps{
+				sh 'mvn failsafe:integration-test failsafe:verify'
 			}
 		}
 	}
